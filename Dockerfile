@@ -3,9 +3,6 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17.0.1-jdk-slim
-COPY --from=build /target/DeployExample2-0.0.1-SNAPSHOT.jar DeployExample2.jar
+COPY --from=build /target/DeployExample2-1.0.0.jar DeployExample2.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "DeployExample.jar"]
-
-
-
+ENTRYPOINT ["java", "-jar", "DeployExample2.jar"]
